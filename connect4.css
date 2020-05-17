@@ -9,6 +9,7 @@ h3 {
 span {
 	display: inline;
 }
+
 #board {
 	display: flex;
 	flex-direction: column;
