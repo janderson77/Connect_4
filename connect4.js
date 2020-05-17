@@ -9,6 +9,10 @@ const WIDTH = 7;
 const HEIGHT = 6;
 
 let currPlayer = 1; // active player: 1 or 2
+
+const player = document.getElementById('turn');
+player.innerText = `Player ${currPlayer} go!`;
+
 let board = []; // array of rows, each row is array of cells  (board[y][x])
 
 /** makeBoard: create in-JS board structure:
@@ -57,7 +61,7 @@ function makeHtmlBoard() {
 
 function findSpotForCol(x) {
 	// TODO: write the real version of this, rather than always returning 0
-	for (let y = HEIGHT - 1; y > 0; y--) {
+	for (let y = HEIGHT - 1; y >= 0; y--) {
 		if (!board[y][x]) {
 			return y;
 		}
@@ -71,7 +75,6 @@ function placeInTable(y, x) {
 	// TODO: make a div and insert into correct table cell
 	const piece = document.createElement('div');
 	piece.classList.add('piece', `p${currPlayer}`);
-	// piece.classList.add(`p${currPlayer}`);
 
 	const position = document.getElementById(`${y}-${x}`);
 	position.append(piece);
@@ -112,6 +115,7 @@ function handleClick(evt) {
 	// switch players
 	// TODO: switch currPlayer 1 <-> 2
 	currPlayer = currPlayer === 2 ? 1 : 2;
+	player.innerText = `Player ${currPlayer} go!`;
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */

@@ -1,4 +1,19 @@
 /* game board table */
+H1,
+h3 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+span {
+	display: inline;
+}
+#board {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 #board td {
 	width: 50px;
